@@ -1,0 +1,52 @@
+package day3;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import java.util.List;
+import java.time.Duration;
+
+public class udemyAssignment2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		WebDriver driver =  new ChromeDriver();
+		
+		driver.get("https://rahulshettyacademy.com/loginpagePractise/");
+		driver.findElement(By.name("username")).sendKeys("rahulshettyacademy");
+		
+		driver.findElement(By.name("password")).sendKeys("learning");
+		
+		
+		driver.findElement(By.cssSelector("div.container:nth-child(3) div.row.justify-content-center.align-items-center div.col-md-6 div.col-md-12 form.form div.form-group:nth-child(4) div.form-check-inline label.customradio:nth-child(2) > span.radiotextsty:nth-child(1)")).click();
+		
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.findElement(By.cssSelector("#okayBtn")).click();
+		driver.findElement(By.xpath("//body[1]/div[2]/div[1]/div[1]/div[2]/button[2]")).click();
+		driver.findElement(By.cssSelector("select[class='form-control']")).click();
+		driver.findElement(By.cssSelector("option[value='consult']")).click();
+		driver.findElement(By.cssSelector("#signInBtn")).click();
+		List<WebElement> addCart =  driver.findElements(By.cssSelector("button[class='btn btn-info']"));
+		int count = addCart.size();
+		System.out.println(count);
+		for (int i =1;i<=count;i++) {
+		
+		driver.findElement(By.cssSelector("div.container div.row div.col-lg-9 app-card-list.row app-card.col-lg-3.col-md-6.mb-3:nth-child("+i+") div.card.h-100 div.card-footer:nth-child(3) button.btn.btn-info > i.zmdi.zmdi-shopping-cart")).click();
+		}
+		
+		
+		
+		driver.findElement(By.cssSelector("a[class='nav-link btn btn-primary']")).click();
+		
+		
+		
+		
+		
+		
+
+	}
+
+}
